@@ -1,37 +1,29 @@
-## Welcome to GitHub Pages
+# SNHU CS-499 ePortfolio
 
-You can use the [editor on GitHub](https://github.com/mikedarling/CS-499/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+_Overview_
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## Table of Contents
+1. Professional Assessment
+2. Milestone One - Code Review
+3. Milestone Two - Software Design & Engineering
+4. Milestone Three - Data Structure & Algorithms
+5. Milestone Four - Databases.
 
-### Markdown
+## Milestone One - Code Review
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+_Code Review Narrative_
 
-```markdown
-Syntax highlighted code block
 
-# Header 1
-## Header 2
-### Header 3
+## Milestone Two - Software Design & Engineering
 
-- Bulleted
-- List
+_Software Design & Engineering Narrative_
 
-1. Numbered
-2. List
 
-**Bold** and _Italic_ and `Code` text
+## Milestone Three - Data Structures & Algorithms
 
-[Link](url) and ![Image](src)
-```
+_Data Structures & Algorithms Narrative_
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
 
-### Jekyll Themes
+## Milestone Fve - Databases
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/mikedarling/CS-499/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+_Databases Narrative_
