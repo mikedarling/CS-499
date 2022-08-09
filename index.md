@@ -6,6 +6,10 @@
 	.inner > header {
 		text-align: center;
 	}
+
+	p.embed-wrapper {
+		text-align: center;
+	}
 </style>
 
 # SNHU CS-499 ePortfolio
@@ -14,18 +18,18 @@ _Overview_
 
 **Table of Contents**
 
-1. Professional Assessment
-2. Milestones
-   1. Milestone One - Code Review
-   2. Milestone Two - Software Design & Engineering
-   3. Milestone Three - Data Structure & Algorithms
-   4. Milestone Four - Databases.
-3. Course Outcomes
-   1. Outcome One
-   2. Outcome Two
-   3. Outcome Three
-   4. Outcome Four
-   5. Outcome Five
+1. [Professional Assessment](#professional-assessment)
+2. [Milestones](#milestones)
+   1. [Milestone One - Code Review](#milestone-one---code-review)
+   2. [Milestone Two - Software Design & Engineering](#milestone-two---software-design--engineering)
+   3. [Milestone Three - Data Structure & Algorithms](#milestone-three---data-structure--algorithm)
+   4. [Milestone Four - Databases](#milestone-four---databases)
+3. [Course Outcomes](#course-outcomes)
+   1. [Outcome One](#outcome-one)
+   2. [Outcome Two](#outcome-two)
+   3. [Outcome Three](#outcome-three)
+   4. [Outcome Four](#outcome-four)
+   5. [Outcome Five](#outcome-five)
 
 ## Professional Assessment
 
@@ -40,8 +44,9 @@ _Professional Assessment_
 
 _Code Review Narrative_
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Uw7fgN7QZao" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
+<p class="embed-wrapper">
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/Uw7fgN7QZao" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
 
 ### Milestone Two - Software Design & Engineering
 
