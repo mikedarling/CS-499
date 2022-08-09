@@ -1,13 +1,24 @@
+<style>
+	.inner {
+		width:  50%;
+	}
+
+	.inner > .header {
+		text-align: center;
+	}
+</style>
+
 # SNHU CS-499 ePortfolio
 
 _Overview_
 
 ## Table of Contents
 1. Professional Assessment
-2. Milestone One - Code Review
-3. Milestone Two - Software Design & Engineering
-4. Milestone Three - Data Structure & Algorithms
-5. Milestone Four - Databases.
+   a. Milestone One - Code Review
+   b. Milestone Two - Software Design & Engineering
+   c. Milestone Three - Data Structure & Algorithms
+   d. Milestone Four - Databases.
+2. Course Outcomes
 
 ## Professional Assessment
 
@@ -17,6 +28,9 @@ _Professional Assessment_
 ## Milestone One - Code Review
 
 _Code Review Narrative_
+
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Uw7fgN7QZao" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
 ## Milestone Two - Software Design & Engineering
