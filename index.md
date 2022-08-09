@@ -3,7 +3,7 @@
 		width:  50%;
 	}
 
-	.inner > .header {
+	.inner > header {
 		text-align: center;
 	}
 </style>
@@ -16,16 +16,16 @@ _Overview_
 
 1. Professional Assessment
 2. Milestones
-   a. Milestone One - Code Review
-   b. Milestone Two - Software Design & Engineering
-   c. Milestone Three - Data Structure & Algorithms
-   d. Milestone Four - Databases.
+   1. Milestone One - Code Review
+   2. Milestone Two - Software Design & Engineering
+   3. Milestone Three - Data Structure & Algorithms
+   4. Milestone Four - Databases.
 3. Course Outcomes
-   a. Outcome One
-   b. Outcome Two
-   c. Outcome Three
-   d. Outcome Four
-   e. Outcome Five
+   1. Outcome One
+   2. Outcome Two
+   3. Outcome Three
+   4. Outcome Four
+   5. Outcome Five
 
 ## Professional Assessment
 
