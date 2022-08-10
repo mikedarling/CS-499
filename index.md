@@ -3,7 +3,7 @@
 		width:  50%;
 	}
 
-	.inner > header {
+	.inner > header, h1 {
 		text-align: center;
 	}
 
@@ -23,8 +23,12 @@
 		font-size: 1rem;
 		border-color: #dadada;
 	}
-</style>
 
+	table {
+		margin-top:  1rem;
+		margin-bottom: 1rem;
+	}
+</style>
 # SNHU CS-499 ePortfolio
 
 | Overview | [Milestones](/CS-499/Milestones) | [Course Outcomes](/CS-499/Course-Outcomes) |

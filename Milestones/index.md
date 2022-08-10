@@ -3,7 +3,7 @@
 		width:  50%;
 	}
 
-	.inner > header {
+	.inner > header, h1 {
 		text-align: center;
 	}
 
@@ -22,6 +22,11 @@
 	blockquote {
 		font-size: 1rem;
 		border-color: #dadada;
+	}
+
+	table {
+		margin-top:  1rem;
+		margin-bottom: 1rem;
 	}
 </style>
 
