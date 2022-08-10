@@ -48,6 +48,8 @@ _Code Review Narrative_
 	<iframe width="560" height="315" src="https://www.youtube.com/embed/Uw7fgN7QZao" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </p>
 
+<p>The video can be found [here](https://youtu.be/Uw7fgN7QZao) on YouTube.</p>
+
 ### Milestone Two - Software Design & Engineering
 
 _Software Design & Engineering Narrative_
