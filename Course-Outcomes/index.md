@@ -1,5 +1,5 @@
 <style>
-	section#downloads:empty {
+	section#downloads {
 		display: none;
 	}
 
