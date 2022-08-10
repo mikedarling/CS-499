@@ -32,6 +32,10 @@
 		margin-top:  1rem;
 		margin-bottom: 1rem;
 	}
+
+	h1 + table td {
+		border: none;
+	}
 </style>
 
 
