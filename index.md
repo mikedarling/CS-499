@@ -18,6 +18,11 @@
 	p {
 		color: #484848;
 	}
+
+	blockquote {
+		font-size: 1rem;
+		border-color: #dadada;
+	}
 </style>
 
 # SNHU CS-499 ePortfolio
