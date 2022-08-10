@@ -25,7 +25,7 @@
 	}
 </style>
 
-# SNHU CS-499 Narratives
+# SNHU CS-499 Milestones
 
 | [Overview](/CS-499) | Milestones | [Course Outcomes](/CS-499/Course-Outcomes) |
 
