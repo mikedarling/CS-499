@@ -10,6 +10,10 @@
 	p.embed-wrapper {
 		text-align: center;
 	}
+
+	ol > li > ol {
+		margin-left: 20px;
+	}
 </style>
 
 # SNHU CS-499 ePortfolio
