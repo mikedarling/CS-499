@@ -1,4 +1,8 @@
 <style>
+	section#downloads:empty {
+		display: none;
+	}
+
 	.inner {
 		width:  50%;
 	}
@@ -24,11 +28,12 @@
 		border-color: #dadada;
 	}
 
-	table {
+	h1 + table {
 		margin-top:  1rem;
 		margin-bottom: 1rem;
 	}
 </style>
+
 
 # SNHU CS-499 Milestones
 
