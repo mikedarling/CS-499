@@ -14,6 +14,10 @@
 	ol > li > ol {
 		margin-left: 20px;
 	}
+
+	p {
+		color: #484848;
+	}
 </style>
 
 # SNHU CS-499 ePortfolio
