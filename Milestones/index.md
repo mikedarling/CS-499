@@ -35,6 +35,8 @@
 
 	h1 + table td {
 		border: none;
+		text-align: center;
+		width: 33%;
 	}
 </style>
 
