@@ -27,7 +27,7 @@
 
 # SNHU CS-499 Course Outcomes
 
-| [Overview](/) | [Milestones](/Milestones) | Course Outcomes |
+| [Overview](/CS-499) | [Milestones](/CS-499/Milestones) | Course Outcomes |
 
 **Table of Contents**
 

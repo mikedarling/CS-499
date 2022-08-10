@@ -27,7 +27,7 @@
 
 # SNHU CS-499 ePortfolio
 
-| Overview | [Milestones](/Milestones) | [Course Outcomes](/Course-Outcomes) |
+| Overview | [Milestones](/CS-499/Milestones) | [Course Outcomes](/CS-499/Course-Outcomes) |
 
 **Table of Contents**
 
