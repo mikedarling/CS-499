@@ -47,13 +47,16 @@
 
 **Table of Contents**
 
-- [Overview](#Overview)
+- [Overview](#overview)
 - [Professional Assessment](#professional-assessment)
+- [Summary](#summary)
 
 ## Overview
 
-_Overview_
+The SNHU Computer Science Capstone gives graduating students an opportunity to showcase their proficiency in the Computer Science field. This ePortfolio represents a combination of the knowledge developed throughtout the courses in the Computer Science program and the practical skills gained from ten years of experience I've accumulated as an engineer.
 
 ## Professional Assessment
 
-_Professional Assessment_
+The Computer Science program at SNHU has been a wonderful experience that has helped me develop and reinforce my expertise in the industry in a number of ways, the most impactful being that I have greatly expanded my understanding of many of the more fundamental concepts of Computer Science that I was previously lacking. A few great examples of this would include the underlying memory structures and pointer functionality that enables the traversal of list types and how instructions and data are passed between memory and processor registers.
+
+## Summary
