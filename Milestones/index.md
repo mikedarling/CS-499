@@ -49,7 +49,7 @@
 
 - [Milestone One - Code Review](#milestone-one---code-review)
 - [Milestone Two - Software Design & Engineering](#milestone-two---software-design--engineering)
-- [Milestone Three - Data Structure & Algorithms](#milestone-three---data-structure--algorithms)
+- [Milestone Three - Data Structure & Algorithms](#milestone-three---data-structures--algorithms)
 - [Milestone Four - Databases](#milestone-four---databases)
 
 ## Milestone One - Code Review
