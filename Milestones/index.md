@@ -54,17 +54,16 @@
 
 ## Milestone One - Code Review
 
-_Code Review Narrative_
-
 <p class="embed-wrapper">
 	<iframe width="560" height="315" src="https://www.youtube.com/embed/Uw7fgN7QZao" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </p>
 
 The video can be found [here](https://youtu.be/Uw7fgN7QZao) on YouTube.
 
-## Milestone Two - Software Design & Engineering
+Code reviews are a tool that can be utilized by development teams that provide value in a handful of ways. It can provide a checkpoint for other developers to catch issues that may have been overlooked during development such as null checks, reversed logic gates (e.g. improper boolean operators - `&&` switched with an `||`; wrong comparison operator - `>` instead of `<`; etc.), or ineffecient code flows (e.g. static lists populated inside of a loop). One of the more useful and often overlooked benefits of code reviews is that is provides a way for engineers to share knowledge and skills, such as opportunities to refactor a code block to a distinct method or implement design patterns. 
 
-_Software Design & Engineering Narrative_
+
+## Milestone Two - Software Design & Engineering
 
 The artifact is an n-tier solution built to deliver an ASP.NET MVC web application. The presentation layer consists of the ASP.NET project itself along with AngularJS to manage the front-end and avoid unnecessary post-backs to the server. The data tier is currently reading the original CSV and parsing the records directly back to entities. The service tier provides all of the communication to the data tier and executes any relevant business logic necessary and constructs the models necessary to the front-end. I’ve been working on it over the course of the past three weeks.
 
