@@ -83,7 +83,7 @@ The third milestone demonstrates proficiency in this outcome via use of basic da
 The second milestone demonstrated several aspects of proficiency related to this outcome. The project includes observance of separation of concerns using an n-tier architecture, SOLID coding (S => MVC Controllers are thin, L =>  IDataRepository, I => IDataRepository refactored to IReadableDataRepository, D => Dependencies injected via Unity DI Container), and Gang-of-Four OOP Design Patterns (Abstract Factory, Singleton). 
 
 
-## Outocome Five
+## Outcome Five
 
 > Develop a security mindset that anticipates adversarial exploits in software architecture and designs to expose potential vulnerabilities, mitigate design flaws, and ensure privacy and enhanced security of data and resources.
 
