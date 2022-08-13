@@ -68,7 +68,8 @@ username = "aacuser"
 password = "Password4"
 shelter = AnimalShelter(username, password)
 
-# class read method must support return of cursor object and accept projection json input
+# class read method must support return of cursor object
+#     and accept projection json input
 df = pd.DataFrame.from_records(shelter.read({}))
 
 #########################
@@ -83,18 +84,26 @@ app.layout = html.Div([
     dash_table.DataTable(
         id='datatable-id',
         columns=[
-            {"name": i.replace("_", " "), "id": i, "deletable": False, "selectable": True} for i in df.columns
+            {
+            	"name" : i.replace("_", " "),
+            	"id": i,
+            	"deletable": False,
+            	"selectable": True
+        	} for i in df.columns
         ],
-        #FIXME: Set up the features for your interactive data table to make it user-friendly for your client
+        #FIXME: Set up the features for your interactive data
+        #    table to make it user-friendly for your client
         sort_action= "native"
         filter_action= "native"
         data=df.to_dict('records'),
         page_size=25,
-        fixed_rows={'headers': True},
+        fixed_rows={
+        	'headers': True
+        	},
         style_header={
             "height" : 60,
             "text-transform" : "uppercase"
-        }
+            }
     ),
     html.Br(),
     html.Hr(),
