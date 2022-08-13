@@ -1,0 +1,1 @@
+var graziosoApp = angular.module('graziosoApp', []);
