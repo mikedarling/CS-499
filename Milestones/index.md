@@ -62,7 +62,9 @@ The video can be found [here](https://youtu.be/Uw7fgN7QZao) on YouTube.
 
 Code reviews are a tool that can be utilized by development teams that provide value in a handful of ways. It can provide a checkpoint for other developers to catch issues that may have been overlooked during development such as null checks, reversed logic gates (e.g. improper boolean operators - `&&` switched with an `||`; wrong comparison operator - `>` instead of `<`; etc.), or ineffecient code flows (e.g. static lists populated inside of a loop). One of the more useful and often overlooked benefits of code reviews is that is provides a way for engineers to share knowledge and skills, such as opportunities to refactor a code block to a distinct method or implement design patterns. 
 
-Sample of the original python script:
+The original python files can be found [here](https://github.com/mikedarling/CS-499/tree/master/src/Orginal-Project).
+
+Here is a sample of the original python script:
 ```python
 username = "aacuser"
 password = "Password4"
@@ -126,6 +128,8 @@ The artifact is an n-tier solution built to deliver an ASP.NET MVC web applicati
 
 I selected this artifact because it provided a way to showcase an understanding of responsible application architecture. There are a handful of enhancements including the separation of concerns, implementation of dependency injection, improved naming of variables. The observation of separation of concerns provides for a simple replacement of the presentation layer (e.g. a mobile client can be added or could replace the web UI). Likewise, the data repository can be replaced without having to rewrite all of the business logic - this will be demonstrated as part of the third artifact. All dependencies beyond the web tier are managed by a Dependency Injection container so the classes do not need to instantiate the instances of the dependencies and allows them to be passed through the constructor. This also tends to provide more testable classes since a mock implementation of the dependencies can be passed and the testing can focus on the particular class as opposed to the class’s dependencies.
 
+_Demonstration of Seperation of Concerns in the .NET solution_
+![Milestone Two - Seperation of Concerns]('/assets/SeperationOfConcerns.png')
 
 ## Milestone Three - Data Structures & Algorithms
 
