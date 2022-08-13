@@ -1,0 +1,26 @@
+﻿<header class="container-fluid bg-dark text-light">
+    <div class="row">
+        <div class="col pt-2 d-flex justify-content-center">
+            <h1>Grazioso Salvare</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col d-flex justify-content-center">
+            <img src="https://www.fillmurray.com/200/200" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col pt-2 d-flex justify-content-center">
+            <h1>Animal Finder v2.0</h1>
+        </div>
+    </div>
+
+</header>
+@if (User.Identity.IsAuthenticated)
+{
+    <nav class="navbar navbar-nav bg-light">
+        <div class="container-fluid d-flex flex-row-reverse">
+            @Html.ActionLink("Logout", "Logoff", "Login", null, new { @class = "nav-item nav-link text-dark fw-bolder" })
+        </div>
+    </nav>
+}

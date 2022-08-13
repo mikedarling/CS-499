@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grazioso Salvare | @ViewBag.Title</title>
+    <link rel="stylesheet" href="@Url.Content("~/assets/css/bootstrap.min.css")" />
+    <script src="~/assets/js/angular.min.js" defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAcylBgocB4sB5WTfJD-7YbXellloVygEI" defer></script>
+    <script src="~/assets/js/app.js" defer></script>
+    <style>
+        main > .row, footer {
+            margin-top: 1.5rem;
+        }
+
+        td {
+            padding: 0.5rem;
+        }
+
+        fieldset {
+            border: 1px groove black;
+        }
+
+    </style>
+</head>
+<body class="d-flex flex-column min-vh-100">
+    @Html.Partial("_Header")
+    <main class="container mb-2" ng-app="graziosoApp">
+        @RenderBody()
+    </main>
+    @Html.Partial("_Footer")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,182 @@
+﻿<div class="row d-flex justify-content-center">
+    <div class="col" ng-controller="TableController">
+        <div class="row" ng-show="!animals">
+            <div class="alert alert-info" role="alert" ng-show="!animals">
+                <div class="spinner-border spinner-border-sm text-info" role="status">
+                </div>
+                <strong class="ms-1">Loading Table...</strong>
+            </div>
+        </div>
+
+        <div class="row" ng-show="animals">
+            <div class="accordion">
+                <div class="accordion-item mb-2">
+                    <button id="filterToggle" class="accordion-button" ng-class="!showFilters ? 'collapsed' : ''" type="button" ng-click="showFilters = !showFilters">
+                        Filters
+                    </button>
+                    <div class="accordion-collapse collapse" ng-class="showFilters ? 'show' : ''" aria-labelledby="filterToggle">
+                        <div class="accordion-body row">
+                            <div class="row">
+                                <div class="col col-md-3">
+                                    <label for="animal_id" class="form-label">ID</label>
+                                    <input id="animal_id" class="form-control" ng-model="animalId" ng-model-options="{ debounce: 300 }" ng-keyup="resetPage()" />
+                                </div>
+                                <div class="col col-md-3">
+                                    <label for="animal_name" class="form-label">Name</label>
+                                    <input id="animal_name" class="form-control" ng-model="animalName" ng-model-options="{ debounce: 300 }" ng-keyup="resetPage()" />
+                                </div>
+                                <div class="col col-md-3">
+                                    <label for="animal_type" class="form-label">Animal Type</label>
+                                    <select id="animal_type" class="form-select" ng-model="animalType" ng-options="type.Name as type.Name for type in animalTypes" ng-change="resetPage(); filterBreeds();"></select>
+                                </div>
+                                <div class="col col-md-3">
+                                    <label for="animal_breed" class="form-label">Breed</label>
+                                    <input id="animal_breed" class="form-control" ng-model="animalBreed" ng-model-options="{ debounce: 300 }" ng-keyup="resetPage()" />
+                                </div>
+                            </div>
+                            <div class="row mt-1">
+                                <div class="col col-md-6 px-4">
+                                    <div class="row">
+                                        <strong>Date of Birth</strong>
+                                    </div>
+                                    <fieldset class="form-group row py-1">
+                                        <div class="col col-md-6">
+                                            <label for="dob_min" class="form-label">Minimum D.o.B.</label>
+                                            <input id="dob_min" type="date" max="{{today}}" class="form-control" ng-model="dobMin" ng-change="resetPage()" />
+                                        </div>
+                                        <div class="col col-md-6">
+                                            <label for="dob_max" class="form-label">Maximum D.o.B.</label>
+                                            <input id="dob_max" type="date" max="{{today}}" class="form-control" ng-model="dobMax" ng-change="resetPage()" />
+                                        </div>
+                                    </fieldset>
+                                </div>
+                                <div class="col col-md-6 px-4">
+                                    <div class="row">
+                                        <strong>Date of Outcome</strong>
+                                    </div>
+                                    <fieldset class="form-group row py-1">
+                                        <div class="col col-md-6">
+                                            <label for="doo_min" class="form-label">Minimum Date of Outcome</label>
+                                            <input id="doo_min" type="date" max="{{today}}" class="form-control" ng-model="dooMin" ng-change="resetPage()" />
+                                        </div>
+                                        <div class="col col-md-6">
+                                            <label for="doo_max" class="form-label">Maximum Date of Outcome</label>
+                                            <input id="doo_max" type="date" max="{{today}}" class="form-control" ng-model="dooMax" ng-change="resetPage()" />
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" ng-show="animals">
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped table-hover text-center w-auto" ng-show="animals">
+                    <thead class="table-dark">
+                        <tr>
+                            <th class="th-sm" ng-click="setSort('AnimalId')">
+                                ID
+                            </th>
+                            <th class="th-lg" ng-click="setSort('Name')">
+                                Name
+                            </th>
+                            <th class="th-lg" ng-click="setSort('AnimalType')">
+                                Animal Type
+                            </th>
+                            <th class="th-lg" ng-click="setSort('Breed')">
+                                Breed
+                            </th>
+                            <th class="th-lg" ng-click="setSort('Colors')">
+                                Color
+                            </th>
+                            <th class="th-sm" ng-click="setSort('DateOfBirth')">
+                                Date of Birth
+                            </th>
+                            <th class="th-sm" ng-click="setSort('AgeUponOutcome')">
+                                Age Upon Outcome
+                            </th>
+                            <th class="th-sm" ng-click="setSort('DateOfOutcome')">
+                                Date of Outcome
+                            </th>
+                            <th class="th-sm" ng-click="setSort('Latitude')">
+                                Latitude
+                            </th>
+                            <th class="th-sm" ng-click="setSort('Longitude')">
+                                Longitude
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr data-id="{{animal.Id}}" ng-repeat="animal in animals | orderBy: sortKey | filter : animalFilter()  track by $index" ng-show="isOnCurrentPage($index)" ng-click="setSelectedAnimal(animal.Id)" ng-class="selectedAnimal.Id == animal.Id">
+                            <td scope="row">
+                                {{animal.AnimalId}}
+                            </td>
+                            <td>
+                                {{animal.Name}}
+                            </td>
+                            <td>
+                                {{animal.AnimalType}}
+                            </td>
+                            <td>
+                                {{animal.Breed}}
+                            </td>
+                            <td>
+                                {{animal.Colors}}
+                            </td>
+                            <td>
+                                {{formatDate(animal.DateOfBirth)}}
+                            </td>
+                            <td>
+                                {{animal.AgeUponOutcome}}
+                            </td>
+                            <td>
+                                {{formatDate(animal.DateOfOutcome)}}
+                            </td>
+                            <td>
+                                {{round(animal.Latitude, 2)}}
+                            </td>
+                            <td>
+                                {{round(animal.Longitude, 2)}}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="row justify-content-md-between" ng-show="animals">
+            <div class="col col-md-3 pb-1 pb-lg-0">
+                <em>Showing rows {{(currentPage - 1) * pageSize + 1}} - {{currentPage * pageSize}}</em>
+            </div>
+            <nav ng-show="animals" class="col-md-6">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item"><button class="page-link" ng-class="currentPage == 1 ? 'btn-disabled' : ''" ng-click="currentPage=1" ng-disabled="currentPage == 1">First</button></li>
+                    <li class="page-item"><button class="page-link" ng-class="currentPage == 1 ? 'btn-disabled' : ''" ng-click="currentPage=(currentPage - 1)" ng-disabled="currentPage == 1">Previous</button></li>
+                    <li class="page-item active" aria-current="page">
+                        <span class="page-link">{{currentPage}}</span>
+                    </li>
+                    <li class="page-item"><button class="page-link" ng-class="currentPage == lastPage ? 'btn-disabled' : ''" ng-click="currentPage=(currentPage + 1)" ng-disabled="currentPage == lastPage">Next</button></li>
+                    <li class="page-item"><button class="page-link" ng-class="currentPage == lastPage ? 'btn-disabled' : ''" ng-click="currentPage=lastPage" ng-disabled="currentPage == lastPage">Last</button></li>
+                </ul>
+            </nav>
+            <div class="col col-md-3 float-md-end">
+                <div class="float-md-end">
+                    <label for="pageSize">Page Size</label>
+                    <select id="pageSize" ng-model="pageSize" ng-options="size for size in pageSizes" ng-change="updateLastPage()"></select>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row" >
+    <div class="col-12 col-md-7" ng-controller="MapController" ng-show="selectedAnimal">
+        <div id="map" style="height: 400px;"></div>
+    </div>
+    <div class="col-12 col-md-5">
+        @Html.Partial("~/Views/Animals/_Details.cshtml")
+    </div>
+</div>
