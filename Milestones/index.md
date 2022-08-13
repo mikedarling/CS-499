@@ -62,6 +62,54 @@ The video can be found [here](https://youtu.be/Uw7fgN7QZao) on YouTube.
 
 Code reviews are a tool that can be utilized by development teams that provide value in a handful of ways. It can provide a checkpoint for other developers to catch issues that may have been overlooked during development such as null checks, reversed logic gates (e.g. improper boolean operators - `&&` switched with an `||`; wrong comparison operator - `>` instead of `<`; etc.), or ineffecient code flows (e.g. static lists populated inside of a loop). One of the more useful and often overlooked benefits of code reviews is that is provides a way for engineers to share knowledge and skills, such as opportunities to refactor a code block to a distinct method or implement design patterns. 
 
+Sample of the original python script:
+```python
+username = "aacuser"
+password = "Password4"
+shelter = AnimalShelter(username, password)
+
+# class read method must support return of cursor object and accept projection json input
+df = pd.DataFrame.from_records(shelter.read({}))
+
+#########################
+# Dashboard Layout / View
+#########################
+app = JupyterDash('SimpleExample')
+
+app.layout = html.Div([
+    html.Div(id='hidden-div', style={'display':'none'}),
+    html.Center(html.B(html.H1('SNHU CS-340 Dashboard'))),
+    html.Hr(),
+    dash_table.DataTable(
+        id='datatable-id',
+        columns=[
+            {"name": i.replace("_", " "), "id": i, "deletable": False, "selectable": True} for i in df.columns
+        ],
+        #FIXME: Set up the features for your interactive data table to make it user-friendly for your client
+        sort_action= "native"
+        filter_action= "native"
+        data=df.to_dict('records'),
+        page_size=25,
+        fixed_rows={'headers': True},
+        style_header={
+            "height" : 60,
+            "text-transform" : "uppercase"
+        }
+    ),
+    html.Br(),
+    html.Hr(),
+    html.Div(
+           id='map-id',
+           className='col s12 m6',
+           ),
+    html.Hr(),
+    html.Footer(
+        html.Center(
+            html.B('Michael Darling | CS-340 | Module 6 Milestone | 2021.12.05')
+        )
+    )
+]);
+```
 
 ## Milestone Two - Software Design & Engineering
 
