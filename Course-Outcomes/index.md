@@ -38,6 +38,12 @@
 		text-align: center;
 		width: 33%;
 	}
+
+	p > em; p > img {
+		text-align: center;
+		display: block;
+		margin: auto;
+	}
 </style>
 
 
