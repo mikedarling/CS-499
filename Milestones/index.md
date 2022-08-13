@@ -129,7 +129,7 @@ The artifact is an n-tier solution built to deliver an ASP.NET MVC web applicati
 I selected this artifact because it provided a way to showcase an understanding of responsible application architecture. There are a handful of enhancements including the separation of concerns, implementation of dependency injection, improved naming of variables. The observation of separation of concerns provides for a simple replacement of the presentation layer (e.g. a mobile client can be added or could replace the web UI). Likewise, the data repository can be replaced without having to rewrite all of the business logic - this will be demonstrated as part of the third artifact. All dependencies beyond the web tier are managed by a Dependency Injection container so the classes do not need to instantiate the instances of the dependencies and allows them to be passed through the constructor. This also tends to provide more testable classes since a mock implementation of the dependencies can be passed and the testing can focus on the particular class as opposed to the class’s dependencies.
 
 _Demonstration of Seperation of Concerns in the .NET solution_
-![Milestone Two - Seperation of Concerns](/CS-499/assets/SeperationOfConcerns.png)
+![Milestone Two - Seperation of Concerns](/CS-499/assets/img/SeperationOfConcerns.png)
 
 ## Milestone Three - Data Structures & Algorithms
 
