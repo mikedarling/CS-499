@@ -81,11 +81,15 @@
 
 <script>
 	(function() {
-		var anchors = document.querySelectorAll('[href="http://grazioso.azurewebsites.net/"');
-		if (!anchors || !anchors[0]) {
-			return;
+		function setAnchorTarget() {
+			var anchors = document.querySelectorAll('[href="http://grazioso.azurewebsites.net/"]');
+			if (!anchors || !anchors[0]) {
+				return;
+			}
+			anchors[0].setAttribute('target', '_blank');
 		}
-		anchors[0].setAttribute('target', '_blank');
+
+		document.addEventListener('DOMContentLoaded', setAnchorTarget, false);
 	})();
 	
 </script>
