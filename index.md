@@ -44,6 +44,21 @@
 		display: block;
 		margin: auto;
 	}
+
+	p + table {
+		width: 80%;
+		margin: auto;
+		color: #484848;
+		border-color: #3f3f3f;
+	}
+
+	p + table th {
+		font-weight: bolder;
+	}
+
+	p + table * {
+		border-color: #3f3f3f;
+	}
 </style>
 
 
