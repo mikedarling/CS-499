@@ -59,6 +59,15 @@
 	p + table * {
 		border-color: #3f3f3f;
 	}
+
+	p + table th {
+		padding: 0.5rem;
+	}
+
+	p + table td {
+		padding: 0.5rem;
+		vertical-align: middle;
+	}
 </style>
 
 
