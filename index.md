@@ -68,6 +68,11 @@
 		padding: 0.5rem;
 		vertical-align: middle;
 	}
+
+	footer {
+		background-position-x: center;
+		text-align: center;
+	}
 </style>
 
 

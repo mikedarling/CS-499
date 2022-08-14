@@ -44,6 +44,11 @@
 		display: block;
 		margin: auto;
 	}
+
+	footer {
+		background-position-x: center;
+		text-align: center;
+	}
 </style>
 
 # SNHU CS-499 Milestones
