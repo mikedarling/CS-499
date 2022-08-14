@@ -79,6 +79,10 @@
 	}
 </style>
 
+<script>
+	var anchor = document.querySelectorAll('[href="http://grazioso.azurewebsites.net/"');
+	anchor.setAttribute('target', '_blank');
+</script>
 
 # SNHU CS-499 ePortfolio
 
