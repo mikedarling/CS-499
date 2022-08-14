@@ -145,7 +145,7 @@ This milestone’s artifact is a continuation of the work submitted for Mileston
 
 I selected this artifact as a means to demonstrate the ability to implementation of these patterns demonstrates an understanding of well-known and established practices. The ease with which the Cache Provider can be substituted with an alternative implementation, such as REDIS, acknowldeges the potential need for horizontal scaling in production environments and the benefit of centralizing cache and the impact to overall system performance.
 
-_Cache usage in the service layer is a basic algorithm example. This version is an improvement from the fourth milestone._
+_Cache usage in the service layer is a basic algorithm example. This is an improved version of the method found in the fourth milestone._
 ```csharp
 /// <summary>
 /// Gets the complete list of animals from the cache if it's available or from the repository.
@@ -173,8 +173,151 @@ public async Task<IEnumerable<AnimalModel>> GetAnimals()
 }
 ```
 
+_Snippets of singleton instance of a factory that returns a repository type used in Dependency Injection container, singleton initialization, and the factory's Create() method._
+```csharp
+// AnimalRescue.Web.UnityConfig
+
+// ...
+
+public static void RegisterComponents()
+{
+	var container = new UnityContainer();
+
+	// ...
+    
+    container.RegisterInstance(RepositoryFactory.Instance.Create("csv"));
+    
+    // ...
+
+    DependencyResolver.SetResolver(new UnityDependencyResolver(container));
+}
+// ...
+
+```
+
+```csharp
+// AnimalRescue.Data.Repositories.RepositoryFactory
+
+// ...
+        
+// Constructor marked private to enforce Singleton pattern.
+private RepositoryFactory()
+{
+
+}
+
+// ...
+
+// The private Singleton instance. Lazy<T> implementation
+// defers objet creation until it is used.
+private static Lazy<RepositoryFactory> _instance;
+
+// ...
+
+/// <summary>
+/// Public access to the encapsulated singleton. 
+/// </summary>
+public static RepositoryFactory Instance
+{
+    get
+    {
+        // Object lock helps to ensure thread safety.
+        lock(_lock)
+        {
+            if (_instance == null)
+            {
+                _instance = new Lazy<RepositoryFactory>(() => new RepositoryFactory(), true);
+            }
+            return _instance.Value;
+        }
+    }
+}
+
+// ...
+
+public IReadableDataRepository _Create(string repoType)
+{
+    switch (repoType)
+    {
+        case "csv":
+            string fileName = ConfigurationManager.AppSettings["CsvFilePath"];
+            return new CsvRepository(fileName);
+        case "ef":
+            //ConnectionStringSettings conn = ConfigurationManager.ConnectionStrings[""];
+            throw new NotImplementedException("Entity Framework not yet implemented");
+        default:
+            throw new Exception("Specify a known repository type");
+    }
+}
+
+```
+
 ## Milestone Four - Databases
 
 This milestone’s artifact is a continuation of the work submitted for Milestone Three. The milestone includes the migration of the data source from the flat CSV file to a normalized code-first EF database, implementation of ASP.NET Membership, a login page, and some role based functionality. Although migrating from the flat file to the database and the decision to use a relational database as opposed to a document-based repository, such as the initial project’s use of MongoDB, carries a performance hit with the increased time for table-spanning queries, the overall benefits outweigh this drawback. Using a flat file is a reasonable choice when only reading from the repository, but it’s the wrong tool for the job if you need to update the dataset. MongoDB, or any other document based repository, helps alleviate this some, but maintains the problem of data maintenance due to lack of normalization. Using Entity Framework also allowed me to rest comfortably with the knowledge that my database is protected from SQL injection attacks and also gave me a way to bolt and Authentication and Authorization framework to restrict access to the application in general and role-restrict selected capabilities.
 
 I selected this artifact to highlight how security can be layered into a system from local file encryption - SQL credentials stored in an encrypted file, network security - SQL instance does not have a public IP and firewall rules to only allow traffic from the application, the implementation of a industry-trusted Identity/Membership platform to enable Authentication and Authorization to the application.
+
+_The seed methods import data from the CSV into the database. CSV Records are normalized across various tables._
+```csharp
+// AnimalRescue.Data.Repositories.Migrations.Configuration
+
+private void SeedAnimalTypesAndBreeds(AnimalRescueContext context, IQueryable<AnimalCsvRecord> sourceData)
+{
+    var animalTypeEntities = sourceData
+                     .Select(x => x.AnimalType.Trim())
+                     .Distinct()
+                     .Select(x => new AnimalType()
+                     {
+                         Name = x
+                     })
+                     .AsEnumerable();
+
+    animalTypeEntities = context.AnimalTypes.AddRange(animalTypeEntities);
+    context.SaveChanges();
+
+    foreach (var animalTypeEntity in animalTypeEntities)
+    {
+        var animalType_BreedEntities = sourceData
+            .Where(x => x.AnimalType.Trim() == animalTypeEntity.Name)
+            .SelectMany(x => x.Breed.Split('/'))
+            .Select(x => x.Replace(" Mix", "").Trim())
+            .Distinct()
+            .Select(x => new Breed()
+            {
+                Name = x,
+                AnimalType = animalTypeEntity
+            })
+            .AsEnumerable();
+
+        animalType_BreedEntities = context.Breeds.AddRange(animalType_BreedEntities);
+        context.SaveChanges();
+    }
+}
+```
+
+_Code snippets from AnimalsController. [Authorize] - attribute on the class - prevents unauthenticated users from accessing these endpoints. [Authorize(Roles = ("Some, role, names, here"))] - attribute on the "action" - restricts usage to users in those roles.
+```csharp
+// AnimalRescue.Controllers.AnimalsController
+
+// ...
+
+[Authorize]
+public class AnimalsController : Controller
+{
+
+	// ...
+
+	// [POST] Animals/Details
+	// ...
+	[HttpPost]
+	[Authorize(Roles = (RoleConstants.ADMINISTRATOR + ", " + RoleConstants.EDITOR))]
+	public async Task<JsonResult> Details(AnimalDetailModel viewModel)
+	{
+	    // ...
+	}
+
+	// ...
+
+}
+```
