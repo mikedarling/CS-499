@@ -46,17 +46,17 @@
 	}
 </style>
 
-
 # SNHU CS-499 Milestones
 
 | [Overview](/CS-499) | Milestones | [Course Outcomes](/CS-499/Course-Outcomes) |
 
 **Table of Contents**
-
 - [Milestone One - Code Review](#milestone-one---code-review)
 - [Milestone Two - Software Design & Engineering](#milestone-two---software-design--engineering)
 - [Milestone Three - Data Structure & Algorithms](#milestone-three---data-structures--algorithms)
 - [Milestone Four - Databases](#milestone-four---databases)
+
+
 
 ## Milestone One - Code Review
 
@@ -70,7 +70,7 @@ Code reviews are a tool that can be utilized by development teams that provide v
 
 The original python files can be found [here](https://github.com/mikedarling/CS-499/tree/master/src/Orginal-Project).
 
-Here is a sample of the original python script:
+_Sample of the original python script:_
 ```python
 username = "aacuser"
 password = "Password4"
@@ -128,14 +128,16 @@ app.layout = html.Div([
 ]);
 ```
 
+
 ## Milestone Two - Software Design & Engineering
 
 The artifact is an n-tier solution built to deliver an ASP.NET MVC web application. The presentation layer consists of the ASP.NET project itself along with AngularJS to manage the front-end and avoid unnecessary post-backs to the server. The data tier is currently reading the original CSV and parsing the records directly back to entities. The service tier provides all of the communication to the data tier and executes any relevant business logic necessary and constructs the models necessary to the front-end. I’ve been working on it over the course of the past three weeks.
 
 I selected this artifact because it provided a way to showcase an understanding of responsible application architecture. There are a handful of enhancements including the separation of concerns, implementation of dependency injection, improved naming of variables. The observation of separation of concerns provides for a simple replacement of the presentation layer (e.g. a mobile client can be added or could replace the web UI). Likewise, the data repository can be replaced without having to rewrite all of the business logic - this will be demonstrated as part of the third artifact. All dependencies beyond the web tier are managed by a Dependency Injection container so the classes do not need to instantiate the instances of the dependencies and allows them to be passed through the constructor. This also tends to provide more testable classes since a mock implementation of the dependencies can be passed and the testing can focus on the particular class as opposed to the class’s dependencies.
 
-_Demonstration of Seperation of Concerns in the .NET solution_
+_Seperation of Concerns demonstrated by distinct Projects in the .NET solution_
 ![Milestone Two - Seperation of Concerns](/CS-499/assets/img/SeperationOfConcerns.png)
+
 
 ## Milestone Three - Data Structures & Algorithms
 
@@ -143,6 +145,33 @@ This milestone’s artifact is a continuation of the work submitted for Mileston
 
 I selected this artifact as a means to demonstrate the ability to implementation of these patterns demonstrates an understanding of well-known and established practices. The ease with which the Cache Provider can be substituted with an alternative implementation, such as REDIS, acknowldeges the potential need for horizontal scaling in production environments and the benefit of centralizing cache and the impact to overall system performance.
 
+_Cache usage in the service layer is a basic algorithm example. This version is an improvement from the fourth milestone._
+```csharp
+/// <summary>
+/// Gets the complete list of animals from the cache if it's available or from the repository.
+/// </summary>
+/// <returns>An enumerable of <see cref="AnimalModel"/>.</returns>
+public async Task<IEnumerable<AnimalModel>> GetAnimals()
+{
+    var entities = this._animalCacheManager.Get<List<Animal>>(ANIMALS_CACHE_KEY);
+    if (entities == null || !entities.Any())
+    {
+        var result = await this._readableRepository.GetAllAsync<Animal>();
+        if (result == null || !result.Any())
+        {
+            return null;
+        }
+
+        entities = result
+             .OrderBy(x => x.AnimalId)
+             .ToList();
+
+        this._animalCacheManager.Add(ANIMALS_CACHE_KEY, entities);
+    }
+
+    return this._mapper.Map<IEnumerable<AnimalModel>>(entities);
+}
+```
 
 ## Milestone Four - Databases
 
