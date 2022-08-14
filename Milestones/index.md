@@ -296,7 +296,7 @@ private void SeedAnimalTypesAndBreeds(AnimalRescueContext context, IQueryable<An
 }
 ```
 
-_Code snippets from AnimalsController. [Authorize] - attribute on the class - prevents unauthenticated users from accessing these endpoints. [Authorize(Roles = ("Some, role, names, here"))] - attribute on the "action" - restricts usage to users in those roles.
+_Code snippets from AnimalsController. [Authorize] - attribute on the class - prevents unauthenticated users from accessing these endpoints. [Authorize(Roles = ("Some, role, names, here"))] - attribute on the "action" - restricts usage to users in those roles._
 ```csharp
 // AnimalRescue.Controllers.AnimalsController
 
